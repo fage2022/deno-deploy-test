@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-app.listen(3000, () => {
+app.listen(80, () => {
     console.log('Server is running on http://localhost:3000')
 })
 
