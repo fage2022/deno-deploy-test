@@ -11,4 +11,5 @@ export default function main(req){
         console.log(event.data.toString());
         socket.send(event.data);
     });
+    return response;
 }
