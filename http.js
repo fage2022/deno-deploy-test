@@ -1,4 +1,4 @@
-export default async function main(req){
+export default function main(req){
     const url = new URL(req.url);
     const path = url.pathname;
     const method = req.method;

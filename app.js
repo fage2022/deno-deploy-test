@@ -5,7 +5,7 @@ cron();
 
 Deno.serve((req) => {
     if (req.headers.get("upgrade") != "websocket") {
-      return await http(req);
+      return http(req);
     }
     ws(req)
     return response;
