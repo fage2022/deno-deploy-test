@@ -29,7 +29,7 @@ export default async function main(req){
     try {
       // 解析 multipart/form-data 格式的上传请求
       const formData = await req.formData();
-      const file = formData.get("file") as File | null;
+      const file = formData.get("file");
 
       if (!file) {
         return new Response(JSON.stringify({ error: "未选择文件" }), {
