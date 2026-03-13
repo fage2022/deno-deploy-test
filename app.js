@@ -1,6 +1,4 @@
-Deno.serve({
-    port: 80,
-}, (req) => {
+Deno.serve((req) => {
     if (req.headers.get("upgrade") != "websocket") {
         return new Response(null, { status: 426 });
     }
