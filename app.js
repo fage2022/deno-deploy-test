@@ -1,6 +1,6 @@
-const express = require('express');
-const http = require('http');
-const WebSocket = require('ws');
+import express from 'express'
+import http from 'http'
+import { WebSocketServer } from 'ws';
 
 // 1. 创建 Express 应用
 const app = express();
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 const server = http.createServer(app);
 
 // 3. 基于 HTTP 服务器创建 WebSocket 服务
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocketServer({ server });
 
 // 4. 监听 WebSocket 连接事件（核心：处理握手和通信）
 wss.on('connection', (ws, req) => {
