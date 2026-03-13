@@ -3,9 +3,9 @@ import http from "./http.js";
 import ws from "./ws.js";
 cron();
 
-Deno.serve((req) => {
+Deno.serve(async(req) => {
     if (req.headers.get("upgrade") != "websocket") {
-      return http(req);
+      return await http(req);
     }
     ws(req)
     return response;
