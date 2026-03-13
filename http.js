@@ -1,4 +1,4 @@
-export default function main(req){
+export default async function main(req){
     const url = new URL(req.url);
     const path = url.pathname;
     const method = req.method;
@@ -77,7 +77,7 @@ export default function main(req){
     try {
       const fileKey = url.pathname.slice(6); // 截取 /file/ 后的键
       const kv = await Deno.openKv();
-      const res = await kv.get<ArrayBuffer>([fileKey]);
+      const res = await kv.get([fileKey]);
       await kv.close();
 
       if (!res.value) {
@@ -121,6 +121,6 @@ export default function main(req){
   `, { headers: { "Content-Type": "text/html" } });
 
 
-  
+
     return new Response(null, { status: 426 });
 }
