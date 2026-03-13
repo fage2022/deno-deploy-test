@@ -1,3 +1,5 @@
+import got from "./fetch.js";
+
 export default async function main(req){
     const url = new URL(req.url);
     const path = url.pathname;
@@ -9,7 +11,8 @@ export default async function main(req){
     }
 
     if (method === "GET" && path === "/about") {
-        return new Response("关于我们 📖", { status: 200 });
+        const txt=await got();
+        return new Response(txt, { status: 200 });
     }
 
     if (method === "GET" && path === "/api/users") {
